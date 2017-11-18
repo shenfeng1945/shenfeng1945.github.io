@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>从URL输入到页面展示 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="全局概念URI名叫统一资源定位符，用于定位互联网上的资源。URL是URI的一种，一般在操作页面用URL。  用户请求远程资源  浏览器查找远程资源，打包用户请求并发送。  服务器根据用户请求的资源路径及附加参数，配合自身逻辑生成相关内容，发送到浏览器。、  浏览器解析结果，呈现直观的方式。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从URL输入到页面展示">
+<meta property="og:url" content="http://yoursite.com/2017/07/27/从URL输入到页面展示/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="全局概念URI名叫统一资源定位符，用于定位互联网上的资源。URL是URI的一种，一般在操作页面用URL。  用户请求远程资源  浏览器查找远程资源，打包用户请求并发送。  服务器根据用户请求的资源路径及附加参数，配合自身逻辑生成相关内容，发送到浏览器。、  浏览器解析结果，呈现直观的方式。">
+<meta property="og:updated_time" content="2017-07-27T13:42:14.469Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从URL输入到页面展示">
+<meta name="twitter:description" content="全局概念URI名叫统一资源定位符，用于定位互联网上的资源。URL是URI的一种，一般在操作页面用URL。  用户请求远程资源  浏览器查找远程资源，打包用户请求并发送。  服务器根据用户请求的资源路径及附加参数，配合自身逻辑生成相关内容，发送到浏览器。、  浏览器解析结果，呈现直观的方式。">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-从URL输入到页面展示" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/27/从URL输入到页面展示/" class="article-date">
+  <time datetime="2017-07-27T13:40:06.000Z" itemprop="datePublished">2017-07-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从URL输入到页面展示
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="全局概念"><a href="#全局概念" class="headerlink" title="全局概念"></a>全局概念</h3><p>URI名叫统一资源定位符，用于定位互联网上的资源。URL是URI的一种，一般在操作页面用URL。</p>
+<ol>
+<li><p>用户请求远程资源</p>
+</li>
+<li><p>浏览器查找远程资源，打包用户请求并发送。</p>
+</li>
+<li><p>服务器根据用户请求的资源路径及附加参数，配合自身逻辑生成相关内容，发送到浏览器。、</p>
+</li>
+<li><p>浏览器解析结果，呈现直观的方式。</p>
+<a id="more"></a>
+<h3 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h3></li>
+</ol>
+<ul>
+<li>第一步：浏览器输入URL</li>
+<li>第二步：域名解析,给DNS服务器一个域名，它给你返回一个IP地址(局域网IP)，DNS用来管理域名和IP的对应关系，可以理解为’键值对’。<pre><code>域名解析的流程：
+</code></pre><ol>
+<li>浏览器缓存— 浏览器会缓存DNS记录一段时间</li>
+<li>系统缓存 — 从Hosts文件查找是否有该域名和对应IP</li>
+<li>路由器缓存 — 一般路由器也会缓存域名信息</li>
+<li>ISP DNS缓存 — 比如到电信的DNS查找缓存</li>
+<li>如果都没有找到，则向根域名服务器查找对应IP，根域名服务器把请求转发到下一级，直到找到为止。</li>
+</ol>
+</li>
+<li>第三步：浏览器处理。<ol>
+<li>浏览器HTTP打包请求</li>
+<li>创建TCP链接</li>
+<li>浏览器发送请求</li>
+</ol>
+</li>
+<li>第四步：服务器处理<ol>
+<li>Web Sever处理请求，是系统里用来处理请求的软件，web服务器用于接受用户的Request交给网站代码，用来管控和承载请求。常见的web服务器有Apache、Nginx、IIS、Lighttpd。</li>
+<li>服务器响应请求，通过MVC(模型视图控制器)，将HTML字符串发送给浏览器。</li>
+</ol>
+</li>
+<li>第五步：浏览器解析，当解析到link标签后，重新发送请求获取CSS，当解析到script标签后，发送请求获取JS，并执行代码，当解析到img标签后，发送请求获取图片资源。</li>
+<li>第六步：绘制网页，浏览器根据HTML和CSS生成渲染树，绘制到屏幕上，而JS会生成DOM树去被执行。</li>
+<li>第七步：处理页面渲染资源和异步请求。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/27/从URL输入到页面展示/" data-id="cja5d5wt1000ex6a8gaftbdq1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/29/This/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          This
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/20/动态REM方案/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">动态REM方案</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/07/JS模块化编程与AMD/">JS模块化编程与AMD</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/19/浅谈Promise对象/">浅谈Promise对象</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/立即执行函数/">立即执行函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/JS-什么是闭包/">JS:什么是闭包</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/JS-异步与回调函数/">JS:异步与回调函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

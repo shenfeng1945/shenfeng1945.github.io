@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JS:原型链 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原型链原型12var arr = []arr.push(&amp;apos;1&amp;apos;) arr明明是个空数组，为什么会有push方法？在这个过程中，我们看看浏览器做了什么，在声明一个空数组时，浏览器会默认给arr绑定一个隐藏的属性，即arr._proto_。然后把早已开辟好的数组的原型Array.prot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS:原型链">
+<meta property="og:url" content="http://yoursite.com/2017/08/02/JS-原型链/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="原型链原型12var arr = []arr.push(&amp;apos;1&amp;apos;) arr明明是个空数组，为什么会有push方法？在这个过程中，我们看看浏览器做了什么，在声明一个空数组时，浏览器会默认给arr绑定一个隐藏的属性，即arr._proto_。然后把早已开辟好的数组的原型Array.prototype指向这个隐藏的属性。即arr._proto_ = Array.prototype将其赋">
+<meta property="og:image" content="https://i.loli.net/2017/08/02/5981c5d78cc5b.png">
+<meta property="og:image" content="https://i.loli.net/2017/08/03/598292dcc5db3.png">
+<meta property="og:image" content="https://i.loli.net/2017/08/03/5982948b45b1e.png">
+<meta property="og:image" content="https://i.loli.net/2017/08/03/5982c0852d956.png">
+<meta property="og:image" content="https://i.loli.net/2017/08/03/5982c3a74e2b6.png">
+<meta property="og:updated_time" content="2017-08-03T06:36:50.670Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS:原型链">
+<meta name="twitter:description" content="原型链原型12var arr = []arr.push(&amp;apos;1&amp;apos;) arr明明是个空数组，为什么会有push方法？在这个过程中，我们看看浏览器做了什么，在声明一个空数组时，浏览器会默认给arr绑定一个隐藏的属性，即arr._proto_。然后把早已开辟好的数组的原型Array.prototype指向这个隐藏的属性。即arr._proto_ = Array.prototype将其赋">
+<meta name="twitter:image" content="https://i.loli.net/2017/08/02/5981c5d78cc5b.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JS-原型链" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/02/JS-原型链/" class="article-date">
+  <time datetime="2017-08-02T15:40:15.000Z" itemprop="datePublished">2017-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS:原型链
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><h4 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = []</span><br><span class="line">arr.push(&apos;1&apos;)</span><br></pre></td></tr></table></figure>
+<p>arr明明是个空数组，为什么会有push方法？在这个过程中，我们看看浏览器做了什么，在声明一个空数组时，浏览器会默认给arr绑定一个隐藏的属性，即<code>arr._proto_</code>。然后把早已开辟好的数组的原型<code>Array.prototype</code>指向这个隐藏的属性。即<code>arr._proto_ = Array.prototype</code>将其赋值。而数组的原型有push方法，当写<code>arr.push()</code>时，会查找arr自身是否有push属性，如果没有就会到<code>arr._proto_</code>里去找，显然<code>arr._proto_.push</code>是存在的。一般情况下，可以省去<code>_proto_</code>，直接写成<code>arr.push</code>，浏览器默认会到原型里去找。<br>如果在<code>Array.prototype</code>里没找到，则会到下一层原型里去找。如果要调用<code>arr.toString()</code>，数组的原型<code>Array.prototype._proto_</code>指向对象的原型<code>Object.prototype</code>。对象的原型最终指向Null。</p>
+<a id="more"></a>
+<p><img src="https://i.loli.net/2017/08/02/5981c5d78cc5b.png" alt=""></p>
+<h4 id="原型链是什么"><a href="#原型链是什么" class="headerlink" title="原型链是什么"></a>原型链是什么</h4><p>当我们读取arr.toString时，JS引擎会做下面的事情：</p>
+<ol>
+<li>看arr数组自身是否有toString属性，没有就走到下一步。</li>
+<li>看arr.<em>proto</em>对象是否有toString属性，没有就继续下一步。</li>
+<li>假如没有的话，看arr.<em>proto</em>.<em>proto</em>对象是否有toString属性。</li>
+<li>如果还没有就继续往下找，看arr.<em>proto</em>.<em>proto</em>.<em>proto</em>对象有没有，知道找到头String属性，或者找到的值为null。<br>在这个搜索过程中，是连着有<em>proto</em>链子走下去的，这条链子叫做原型链。<br>在原型链里，数组和对象都有toString属性，但二者是不同的。在原型链的搜索过程中，找的是离得最近的那个属性。<h4 id="原型有什么用"><a href="#原型有什么用" class="headerlink" title="原型有什么用"></a>原型有什么用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>声明一个函数时，我们知道他有call方法，且存在于Function.prototype里，正因为有了原型，使得不需要每次声明函数时，都要给自身添加call属性。只需要放在原型里，让它成为公共的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var container = []</span><br><span class="line">var soldier </span><br><span class="line">for(var i = 0;i&lt;100;i++)&#123;</span><br><span class="line">  soldier = &#123;</span><br><span class="line">     id : id,</span><br><span class="line">     walk: function()&#123;&#125;,</span><br><span class="line">     die: functionn()&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">container.push(soldier)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，通过for循环造了一百个士兵，每个士兵都有id属性、walk方法和die方法。这种写法显然会极大地浪费内存。因为我们知道walk方法和die方法是soldier共有的，id属性才是solidier私有的。我们可以把共有的属性放在原型里，而私有的属性放在对象自身里，JS代码改进如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var container = []</span><br><span class="line">var soldier</span><br><span class="line"> soldier.prototype = &#123;</span><br><span class="line">  walk: function()&#123;&#125;,</span><br><span class="line">  die: function()&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">/*实际工作，不是这么写，_proto_不是soldier的标准属性*/</span><br><span class="line">soldier._proto_ = soldier.prototype</span><br><span class="line">for( var i=0;i&lt;100;i++)&#123;</span><br><span class="line"> soldier = &#123;</span><br><span class="line">  id: i</span><br><span class="line">&#125;</span><br><span class="line">container.push(soldier)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>通过创建soldier的原型，然后将soldier的<em>proto</em>指向这个原型，这样原型便解决了重复创建的问题。</p>
+<h3 id="原型链的应用"><a href="#原型链的应用" class="headerlink" title="原型链的应用"></a>原型链的应用</h3><ol>
+<li>如何判断一个属性是公有还是私有的。<br>使用arr.hasOwnProperty(‘toString’)</li>
+</ol>
+<ul>
+<li>返回false: 不是私有属性</li>
+<li>返回true: 是私有属性</li>
+</ul>
+<ol>
+<li>函数的特殊性<br>Function是一个构造函数，它既可以看成是一个函数也可以看成是一个对象。当看作函数是，会有prototype属性，即<code>Function.prototype</code>，表示构造函数的原型。当Function看成对象，又会有<em>proto</em>属性，即<code>Function._proto_</code>，表示该对象的原型指向，在查找时，由来标记原型链的。<br><img src="https://i.loli.net/2017/08/03/598292dcc5db3.png" alt=""><br>从上图中看到，对于任意函数来说，它们的原型指向都是<code>Function.prototype</code>，但是构造函数它也是属于函数，所以它的原型指向也是<code>Function.prototype</code>。<br><img src="https://i.loli.net/2017/08/03/5982948b45b1e.png" alt=""><br>其实<code>Function._proto_</code>和<code>Function.prototype</code>位于同一块内存里。<blockquote>
+<p>对象.<em>proto</em> = 对象.constructor.prototype = 对象的构造函数.prototype</p>
+</blockquote>
+</li>
+</ol>
+<p>上面的公式适用于所有原型图。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Function作为对象：Function._proto_ = Function.constructor.prototype = Function.prototype</span><br><span class="line">Function作为函数：Function.prototype = fn._proto_ </span><br><span class="line"> //由于Function是某个对象的函数，则可以随便找一个函数，例如:Array、Number、String等等，fn是由Function构造出来的匿名函数。</span><br></pre></td></tr></table></figure></p>
+<p><code>Function.prototype</code>是所有函数对象的原型，包括了构造函数。<br>我们以Array为例，如下图所示。<br><img src="https://i.loli.net/2017/08/03/5982c0852d956.png" alt=""></p>
+<h3 id="原型的终极奥义-原型图"><a href="#原型的终极奥义-原型图" class="headerlink" title="原型的终极奥义(原型图)"></a>原型的终极奥义(原型图)</h3><p>JavaScirpt里的对象可以分为3类，一类是用户创建的对象，一类是构造函数对象，另一类是原型对象。这三类对象中每一类都有<em>proto</em>属性，通过它可以遍历整个原型链，追溯到原型链的最底层。以下面代码为例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Foo()&#123;&#125;</span><br><span class="line">var foo = new Foo()</span><br><span class="line">var obj = new Object()</span><br></pre></td></tr></table></figure></p>
+<p>其中的复杂关系可以用下面的原型图解释。<br><img src="https://i.loli.net/2017/08/03/5982c3a74e2b6.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/02/JS-原型链/" data-id="cja5d5wsl0004x6a8kx66ga3w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/03/JS-new/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JS:new
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/29/This/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">This</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/07/JS模块化编程与AMD/">JS模块化编程与AMD</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/19/浅谈Promise对象/">浅谈Promise对象</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/立即执行函数/">立即执行函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/JS-什么是闭包/">JS:什么是闭包</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/JS-异步与回调函数/">JS:异步与回调函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

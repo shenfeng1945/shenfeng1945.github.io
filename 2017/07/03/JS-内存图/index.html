@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JS:内存图 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="内存计算机中所有程序的运行都是在内存中进行的，这里的内存一般指的是PC中的内存条，我们知道内存条里只能存取二进制数0和1，那么1G的内存条里能存多少个0或1呢？1G = 10243B  = 10243*8位≈85.8亿位(一个字节有8位)，也就是说1G的内存可以存85.8亿个0或1。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS:内存图">
+<meta property="og:url" content="http://yoursite.com/2017/07/03/JS-内存图/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="内存计算机中所有程序的运行都是在内存中进行的，这里的内存一般指的是PC中的内存条，我们知道内存条里只能存取二进制数0和1，那么1G的内存条里能存多少个0或1呢？1G = 10243B  = 10243*8位≈85.8亿位(一个字节有8位)，也就是说1G的内存可以存85.8亿个0或1。">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/07/03/595a12db22717.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/07/03/595a1c9d58768.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/07/03/595a3c5dce1bd.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/07/03/595a4025b9079.png">
+<meta property="og:updated_time" content="2017-07-27T13:38:24.224Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS:内存图">
+<meta name="twitter:description" content="内存计算机中所有程序的运行都是在内存中进行的，这里的内存一般指的是PC中的内存条，我们知道内存条里只能存取二进制数0和1，那么1G的内存条里能存多少个0或1呢？1G = 10243B  = 10243*8位≈85.8亿位(一个字节有8位)，也就是说1G的内存可以存85.8亿个0或1。">
+<meta name="twitter:image" content="https://ooo.0o0.ooo/2017/07/03/595a12db22717.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JS-内存图" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/03/JS-内存图/" class="article-date">
+  <time datetime="2017-07-03T13:40:42.000Z" itemprop="datePublished">2017-07-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS:内存图
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p>计算机中所有程序的运行都是在内存中进行的，这里的内存一般指的是PC中的内存条，我们知道内存条里只能存取二进制数0和1，那么1G的内存条里能存多少个0或1呢？<br>1G = 1024<sup>3</sup>B  = 1024<sup>3</sup>*8位≈85.8亿位(一个字节有8位)，也就是说1G的内存可以存85.8亿个0或1。</p>
+<a id="more"></a>
+<h3 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h3><p><img src="https://ooo.0o0.ooo/2017/07/03/595a12db22717.png" alt=""></p>
+<h3 id="基本类型数据的存储"><a href="#基本类型数据的存储" class="headerlink" title="基本类型数据的存储"></a>基本类型数据的存储</h3><p>当我们写<code>var a = 1</code>时，这段代码被放在内存图哪里了，我们画图来进行说明。<br><img src="https://ooo.0o0.ooo/2017/07/03/595a1c9d58768.png" alt=""><br>我们以64位的电脑为例，当我们写<code>var a = 1</code>时，这段代码其实是两句，<code>var a</code>和<code>a = 1</code>，其中<code>a</code>放在JS解析器里，它只是一个名字，由别人维护。而数值1分配在一个64位的内存里，并指向<code>a</code>。当我们写<code>a = 2</code>时，JS并不会另外开辟一块内存，而是将原来的数值1进行覆盖。<br>又比如我们写<code>var s1 = &#39;abc&#39;</code>时，这个字符串又被分配一个64位内存用来存储，由于这个字符串共三个字节，而1个字节占16位，那么这个字符串共占48位，显然用这个分配的64位内存来存储是足够的。<br>又假如我们写的字符串不是三个字节，即`var s2 = ‘abcdef’，这个字符串共6个字节共96位，明显一块64位的内存不够，那么浏览器会再分配一个，知道满足为止。这些内存的存放是整齐有序的，不是杂乱无章的，这样的好处是使JS引擎更高效的读取数据。<br>当我们调用变量a时，a是指向那个指定的内存的，此刻数值1就被传了出去，该过程叫<strong>值传递</strong>，其它变量(基本类型)同样如此。</p>
+<h4 id="值传递"><a href="#值传递" class="headerlink" title="值传递"></a>值传递</h4><p>如果我们把变量a的值赋给变量b，即<code>var b =a</code>，此时浏览器会新开一个内存，用来存储数值1，也就是说如果我们给b重新赋一个不等于1的值，并不会影响到a的值。只就是‘值传递’的特点，不会影响其它变量的值。</p>
+<h3 id="复杂类型数据的存储"><a href="#复杂类型数据的存储" class="headerlink" title="复杂类型数据的存储"></a>复杂类型数据的存储</h3><p>比如我们声明一个复杂类型的变量时，例如<code>var o = {name: &#39;Allen&#39;}</code>，此时这段代码又该如何存储？如果是以简单类型的存储方式，这样可行吗？<br>我们知道复杂类型可以添加修改属性和属性值，而内存是没有扩展性，它只能挪内存，这样显然不行。其实开发者用户那里不止一块区域，存简单类型时放在’Stack(栈)’区，该区是按顺序读写的，存复杂类型是放在’Heap(堆)’区，这片区域是无序读写的。’Stack’区就像数组一样，’Heap’区就像树型结构一样。<br><img src="https://ooo.0o0.ooo/2017/07/03/595a3c5dce1bd.png" alt=""><br>上面图中，‘Heap4’和’Heap100’都表示一个地址，而这个地址指向’Heap区’某一块内存区域，用来存放这些属性和属性值。如果要调用这个复杂类型的变量，首先会传个‘地址’给你，然后根据这个‘地址’到‘Heap区’去调用。该过程叫做‘址传递’。</p>
+<h4 id="址传递"><a href="#址传递" class="headerlink" title="址传递"></a>址传递</h4><p>如果我们改变<code>o2</code>的<code>name</code>属性值，这会影响<code>o</code>的<code>name</code>属性值，因为它们指向的都是同一个‘地址’。‘址传递’的特点是，对于复杂类型数据，改变其中一个变量的属性值，如果另一变量也指向这个‘地址’，那个这个变量的属性值也会改变。<br><img src="https://ooo.0o0.ooo/2017/07/03/595a4025b9079.png" alt=""><br>这里只暂时讨论简单的复杂类型数据的存储，对于那些稍微复杂层层调用的函数，以后进行补充。<br><strong>(未完待续)</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/03/JS-内存图/" data-id="cja5d5wsj0003x6a843203iw0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/07/计算机怎么把程序变成0-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          计算机怎么把程序变成0 1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/27/var与let的区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">var与let的区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/07/JS模块化编程与AMD/">JS模块化编程与AMD</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/19/浅谈Promise对象/">浅谈Promise对象</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/立即执行函数/">立即执行函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/JS-什么是闭包/">JS:什么是闭包</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/JS-异步与回调函数/">JS:异步与回调函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

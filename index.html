@@ -61,10 +61,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JS模块化编程与AMD" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/11/18/hello-world/" class="article-date">
-  <time datetime="2017-11-18T13:07:26.839Z" itemprop="datePublished">2017-11-18</time>
+    <a href="/2017/09/07/JS模块化编程与AMD/" class="article-date">
+  <time datetime="2017-09-07T02:43:07.000Z" itemprop="datePublished">2017-09-07</time>
 </a>
     
   </div>
@@ -75,7 +75,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/18/hello-world/">Hello World</a>
+      <a class="article-title" href="/2017/09/07/JS模块化编程与AMD/">JS模块化编程与AMD</a>
     </h1>
   
 
@@ -83,20 +83,407 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h3 id="常规代码"><a href="#常规代码" class="headerlink" title="常规代码"></a>常规代码</h3><p>写JS代码时，我们根据自己的逻辑写出很长的代码后，往往一段时间后，如果重新去看自己写的代码时，会发现根本就不知道我写的是什么，以<a href="https://github.com/shenfeng1945/demojs/blob/master/mobileCanvas/main.js" target="_blank" rel="noopener">移动端画板</a>为例，大约200行代码自上而下堆在在JS文件里，通篇的都是for循环和if else条件判断。这是典型’意大利面’式代码，由于过多使用if else跳转指令，显得代码结构异常混乱。<br>如果代码写成这样，我相信无论是谁都不会有兴趣去阅读你的代码，更严重地是在以后团队项目里，你无法跟别人合作，别人根本就不知道你写的什么，遇到一个bug时，得把所有的逻辑过一遍，然后才能测试代码。</p>
+<h3 id="分模块"><a href="#分模块" class="headerlink" title="分模块"></a>分模块</h3><p>为了解决这种代码结构混乱的情况，我们可以分模块来写。所谓一个模块就是划分一个独立的单元，让其功能独立，除了一些必需的全局变量，你不在依赖其它变量。每一个模块里的代码，为了更方便开发者阅读，你可以把代码里的一个一个小功能封装成函数。让你的主干内容一目了然。以<a href="https://github.com/shenfeng1945/demojs/blob/master/mobileCanvas/modules.js" target="_blank" rel="noopener">移动端画板</a>优化后的代码来看，与前面的来比，明显结构更加清晰。这就是按模块写代码的好处。</p>
+<h3 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h3><p>以下面代码为例:</p>
+        
+          <p class="article-more-link">
+            <a href="/2017/09/07/JS模块化编程与AMD/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/18/hello-world/" data-id="cja5d1juw0000sia89wben0ga" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/09/07/JS模块化编程与AMD/" data-id="cja5d5wss0007x6a8c389x2rv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-浅谈Promise对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/19/浅谈Promise对象/" class="article-date">
+  <time datetime="2017-08-19T14:00:32.000Z" itemprop="datePublished">2017-08-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/19/浅谈Promise对象/">浅谈Promise对象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>Promise对象用于一个异步操作的最终完成(或失败)及其结果值的表示。简单来说是用来处理异步请求。<br>window.Promise是JS的一个内置对象。</p>
+<h3 id="回调时代"><a href="#回调时代" class="headerlink" title="回调时代"></a>回调时代</h3><p>在以前处理异步的代码时，都是用的回调函数。以下面代码为例：<br>假如当点击一个按钮时，发起一个AJAX请求，<code>click</code>函数接受两个回调函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">button.onclick = function()&#123;</span><br><span class="line">    click(&apos;GET&apos;,&apos;/xxx.js&apos;,function(xxx)&#123;</span><br><span class="line">        console.log(xxx)</span><br><span class="line">&#125;,function(yyy)&#123;</span><br><span class="line">     alert(yyy)  </span><br><span class="line">   &#125;)</span><br><span class="line">&#125;</span><br><span class="line"> function click(method,url,successCallback,errorCallback)&#123;</span><br><span class="line">   $.ajax(&#123;</span><br><span class="line">       type: method,</span><br><span class="line">       url: url,</span><br><span class="line">       success: function(responseText)&#123;</span><br><span class="line">           successCallback(responseText)</span><br><span class="line">              &#125;,</span><br><span class="line">       error: function(xhr)&#123;</span><br><span class="line">             errorCallback(&apos;请求错误，错误码为&apos;+xhr.status)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2017/08/19/浅谈Promise对象/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/19/浅谈Promise对象/" data-id="cja5d5wt5000gx6a88r2rubd6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-立即执行函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/17/立即执行函数/" class="article-date">
+  <time datetime="2017-08-17T14:58:02.000Z" itemprop="datePublished">2017-08-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/17/立即执行函数/">立即执行函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>什么是立即执行函数，顾名思义在声明一个函数之后，立马执行它。这个函数一般是匿名函数。</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>立即执行函数的实质就是想创建一个独立的作用域，这个作用域里的变量，外面访问不到。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function xxx()&#123;</span><br><span class="line">  var a=1</span><br><span class="line">  console.log(a)</span><br><span class="line">&#125;</span><br><span class="line">xxx()</span><br></pre></td></tr></table></figure></p>
+<p>如果把这个变量放到函数里，不就行了吗？但这样存在的问题是，虽然你隐藏了一个变量，但你又暴露了一个全局变量<code>xxx</code>。<br>其实，我们只要把这个函数变成匿名函数就行了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function ()&#123;</span><br><span class="line"> var a=1</span><br><span class="line">console.log(a)</span><br><span class="line">&#125;.call()</span><br></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2017/08/17/立即执行函数/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/17/立即执行函数/" data-id="cja5d5wta000jx6a8dxw16o04" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS-什么是闭包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/17/JS-什么是闭包/" class="article-date">
+  <time datetime="2017-08-17T14:56:31.000Z" itemprop="datePublished">2017-08-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/17/JS-什么是闭包/">JS:什么是闭包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>   闭包在JS中，实际上是不存在的，它只是一种马后炮式的总结。在自己写代码时，根本就不知道闭包，只是按照自己的思维来写的，最后，发现了某段代码符合闭包的定义。<br>   如果一个函数用到了它外面的变量，那么这种做法就是闭包。</p>
+<h3 id="举例分析"><a href="#举例分析" class="headerlink" title="举例分析"></a>举例分析</h3><p>  比如我们在做一个游戏，某一个角色有30条命，在写还剩<code>多少条命</code>的代码时，可以用一个全局变量表示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var lives = 30</span><br></pre></td></tr></table></figure></p>
+<p>在减少<code>一条命</code>后，把<code>lives</code>减去1即可，但这样做并不妥，任何人都可以改变这个全局变量的值，所以我们得让外面不能直接访问这个变量，得按我们自己规定的方法才能访问，不难想到可以用局部变量。只要我们在某个函数里声明这个变量，这个变量就是局部变量了。但是局部变量别人访问不到，你可以暴露一个函数，让别人可以<code>间接访问</code>。代码如下：</p>
+        
+          <p class="article-more-link">
+            <a href="/2017/08/17/JS-什么是闭包/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/17/JS-什么是闭包/" data-id="cja5d5wsh0002x6a8umzfuhhn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS-异步与回调函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/17/JS-异步与回调函数/" class="article-date">
+  <time datetime="2017-08-17T14:49:08.000Z" itemprop="datePublished">2017-08-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/17/JS-异步与回调函数/">JS:异步与回调函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h3><p>JS语言将任务的执行模式分成两种：同步(Synchronous)和异步(Asynchronous)。</p>
+<h4 id="同步模式"><a href="#同步模式" class="headerlink" title="同步模式"></a>同步模式</h4><p>同步模式是指后一个任务等待前一个任务的结束，才开始执行。程序的执行顺序与任务的排列顺序是一致的，同步的。以<code>&lt;script src=&quot;xxx.js&quot;&gt;&lt;/script&gt;</code>为例，它就是同步执行的，在浏览器解析到这句代码时，就会停止下一行的解析，去下载要请求的JS文件，并执行它，然后再开始解析下一步代码。<br><img src="https://i.loli.net/2017/08/17/59954c4941631.png" alt=""></p>
+        
+          <p class="article-more-link">
+            <a href="/2017/08/17/JS-异步与回调函数/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/17/JS-异步与回调函数/" data-id="cja5d5wsq0006x6a810ip5142" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-跨域请求" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/13/跨域请求/" class="article-date">
+  <time datetime="2017-08-13T13:05:14.000Z" itemprop="datePublished">2017-08-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/13/跨域请求/">跨域请求</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h3><p>浏览器基于用户隐私考虑，禁止不同源的网站之间相互调用AJAX，对于页面加载不同源的CSS样式表、图像和脚本等资源是可以进行跨域请求。这里说的同源策略是仅指浏览器而规定，用命令行的话并不存在同源策略。<br>所谓同源是指同协议、同域名和同端口。例如<code>http://xxx.com</code>与<code>http://xxx.com</code>就属于同源，后面接的路径可以不同。<br>这里说的禁止AJAX的跨域请求，并不是说浏览器不会向服务器发起请求，而是服务器不会把响应内容给浏览器。</p>
+<h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><p>CORS是一个W3C标准，全称为‘跨域资源共享’(Cross-origin resource sharing)，实质就是跨域Http请求，它允许浏览器向跨域服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源之间发请求。</p>
+        
+          <p class="article-more-link">
+            <a href="/2017/08/13/跨域请求/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/13/跨域请求/" data-id="cja5d5wtn000lx6a8c3f4u0cl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS-new" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/03/JS-new/" class="article-date">
+  <time datetime="2017-08-03T06:37:17.000Z" itemprop="datePublished">2017-08-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/03/JS-new/">JS:new</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>本文不从面向对象的角度来讨论new命令，而是以’省代码’的角度来看new。</p>
+<h3 id="模拟造士兵"><a href="#模拟造士兵" class="headerlink" title="模拟造士兵"></a>模拟造士兵</h3><p>如果我们要造一堆士兵，每个士兵有生命值、编号、攻击力和攻击行为。这些特性在计算机里就是一堆属性，有些属性是士兵私有的(生命值和编号)，有些属性是每个士兵都共有的(攻击力和攻击行为)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var container = []</span><br><span class="line">var soldier</span><br><span class="line">soldier.prototype = &#123;</span><br><span class="line">  attackValue: 10,</span><br><span class="line">  attack: function()&#123;/*攻击行为*/&#125;</span><br><span class="line">&#125;</span><br><span class="line">for(var i =0 ; i&lt;100 ; i++)&#123;</span><br><span class="line">soldier = &#123;</span><br><span class="line">  id: i,</span><br><span class="line">  HP: 100</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">//_proto_不是标准属性，实际中不能这么写</span><br><span class="line">soldier._proto_ = soldier.prototype </span><br><span class="line">container.push(soldier)</span><br></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2017/08/03/JS-new/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/03/JS-new/" data-id="cja5d5wsc0001x6a8yzmeo1qv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JS-原型链" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/02/JS-原型链/" class="article-date">
+  <time datetime="2017-08-02T15:40:15.000Z" itemprop="datePublished">2017-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/02/JS-原型链/">JS:原型链</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><h4 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = []</span><br><span class="line">arr.push(&apos;1&apos;)</span><br></pre></td></tr></table></figure>
+<p>arr明明是个空数组，为什么会有push方法？在这个过程中，我们看看浏览器做了什么，在声明一个空数组时，浏览器会默认给arr绑定一个隐藏的属性，即<code>arr._proto_</code>。然后把早已开辟好的数组的原型<code>Array.prototype</code>指向这个隐藏的属性。即<code>arr._proto_ = Array.prototype</code>将其赋值。而数组的原型有push方法，当写<code>arr.push()</code>时，会查找arr自身是否有push属性，如果没有就会到<code>arr._proto_</code>里去找，显然<code>arr._proto_.push</code>是存在的。一般情况下，可以省去<code>_proto_</code>，直接写成<code>arr.push</code>，浏览器默认会到原型里去找。<br>如果在<code>Array.prototype</code>里没找到，则会到下一层原型里去找。如果要调用<code>arr.toString()</code>，数组的原型<code>Array.prototype._proto_</code>指向对象的原型<code>Object.prototype</code>。对象的原型最终指向Null。</p>
+        
+          <p class="article-more-link">
+            <a href="/2017/08/02/JS-原型链/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/02/JS-原型链/" data-id="cja5d5wsl0004x6a8kx66ga3w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-This" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/29/This/" class="article-date">
+  <time datetime="2017-07-29T15:22:13.000Z" itemprop="datePublished">2017-07-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/29/This/">This</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="this的重要性"><a href="#this的重要性" class="headerlink" title="this的重要性"></a>this的重要性</h3><p>this是JavaScript中最为关键的语法点，一般在简单项目里，this可有可无，但大部分的开发任务中，this起着关键作用。</p>
+<h3 id="this的由来"><a href="#this的由来" class="headerlink" title="this的由来"></a>this的由来</h3><p>以下面JS代码为例，调用该自身对象的其它属性的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123; </span><br><span class="line">name: &apos;allen&apos;,</span><br><span class="line">say: function()&#123;</span><br><span class="line">      console.log(&apos;你好,&apos;+obj.name)</span><br><span class="line">       &#125;</span><br><span class="line"> &#125;</span><br><span class="line">obj.say()   // &apos;allen&apos;</span><br></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2017/07/29/This/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/29/This/" data-id="cja5d5wsx000ax6a8llg37oam" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-从URL输入到页面展示" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/27/从URL输入到页面展示/" class="article-date">
+  <time datetime="2017-07-27T13:40:06.000Z" itemprop="datePublished">2017-07-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/27/从URL输入到页面展示/">从URL输入到页面展示</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="全局概念"><a href="#全局概念" class="headerlink" title="全局概念"></a>全局概念</h3><p>URI名叫统一资源定位符，用于定位互联网上的资源。URL是URI的一种，一般在操作页面用URL。</p>
+<ol>
+<li><p>用户请求远程资源</p>
+</li>
+<li><p>浏览器查找远程资源，打包用户请求并发送。</p>
+</li>
+<li><p>服务器根据用户请求的资源路径及附加参数，配合自身逻辑生成相关内容，发送到浏览器。、</p>
+</li>
+<li><p>浏览器解析结果，呈现直观的方式。</p>
+        
+          <p class="article-more-link">
+            <a href="/2017/07/27/从URL输入到页面展示/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/27/从URL输入到页面展示/" data-id="cja5d5wt1000ex6a8gaftbdq1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -107,6 +494,10 @@
 
   
 
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -123,7 +514,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
     </div>
   </div>
 
@@ -136,7 +527,23 @@
       <ul>
         
           <li>
-            <a href="/2017/11/18/hello-world/">Hello World</a>
+            <a href="/2017/09/07/JS模块化编程与AMD/">JS模块化编程与AMD</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/19/浅谈Promise对象/">浅谈Promise对象</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/立即执行函数/">立即执行函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/JS-什么是闭包/">JS:什么是闭包</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/JS-异步与回调函数/">JS:异步与回调函数</a>
           </li>
         
       </ul>

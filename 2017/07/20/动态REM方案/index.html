@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>动态REM方案 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="媒体查询​    在做移动端的页面开发时，为了满足主流手机在不同像素下页面的完美显示，通常会做成响应式页面，通过媒体查询@media，在不同的手机宽度下显示不同的代码，显然这样做是非常麻烦的，得设计好几套代码。​    例如，当手机屏幕宽度由320像素变为420像素时，用媒体查询一直保持内容居中。 Flexible.j">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态REM方案">
+<meta property="og:url" content="http://yoursite.com/2017/07/20/动态REM方案/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="媒体查询​    在做移动端的页面开发时，为了满足主流手机在不同像素下页面的完美显示，通常会做成响应式页面，通过媒体查询@media，在不同的手机宽度下显示不同的代码，显然这样做是非常麻烦的，得设计好几套代码。​    例如，当手机屏幕宽度由320像素变为420像素时，用媒体查询一直保持内容居中。 Flexible.js​    在GitHub上，flexible.js是一个开源方案，用于移动端的">
+<meta property="og:image" content="https://i.loli.net/2017/07/27/597940c50522f.png">
+<meta property="og:image" content="https://i.loli.net/2017/07/27/59794b22a3768.png">
+<meta property="og:updated_time" content="2017-07-27T13:42:37.684Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="动态REM方案">
+<meta name="twitter:description" content="媒体查询​    在做移动端的页面开发时，为了满足主流手机在不同像素下页面的完美显示，通常会做成响应式页面，通过媒体查询@media，在不同的手机宽度下显示不同的代码，显然这样做是非常麻烦的，得设计好几套代码。​    例如，当手机屏幕宽度由320像素变为420像素时，用媒体查询一直保持内容居中。 Flexible.js​    在GitHub上，flexible.js是一个开源方案，用于移动端的">
+<meta name="twitter:image" content="https://i.loli.net/2017/07/27/597940c50522f.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-动态REM方案" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/20/动态REM方案/" class="article-date">
+  <time datetime="2017-07-20T13:05:34.000Z" itemprop="datePublished">2017-07-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      动态REM方案
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h3><p>​    在做移动端的页面开发时，为了满足主流手机在不同像素下页面的完美显示，通常会做成响应式页面，通过媒体查询<code>@media</code>，在不同的手机宽度下显示不同的代码，显然这样做是非常麻烦的，得设计好几套代码。<br>​    例如，当手机屏幕宽度由320像素变为420像素时，用媒体查询一直保持内容居中。</p>
+<h3 id="Flexible-js"><a href="#Flexible-js" class="headerlink" title="Flexible.js"></a>Flexible.js</h3><p>​    在GitHub上，flexible.js是一个开源方案，用于移动端的自适应，这里我们将讨论该方案的实现原理，也就是动态REM方案。</p>
+<a id="more"></a>
+<h3 id="动态REM"><a href="#动态REM" class="headerlink" title="动态REM"></a>动态REM</h3><p>​    在做移动端页面开发时，往往根据设计稿来进行开发。假如我们有一个宽320px的设计稿，如下图，<br><img src="https://i.loli.net/2017/07/27/597940c50522f.png" alt=""><br>​     我们想在iPhone6(宽:375px)上做一个这样的页面，如果直接把320px下设计稿页面放在375px下，强制让它居中，这样是很丑的。如果能让320px下的div宽度和高度以1.172的比例(375/320=1.172)等比放大，这样便可以完美显示设计稿的样式尺寸了。</p>
+<h3 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h3><p>​    rem(root em)是CSS3新增的一个相对单位，它是相对与根元素的字体大小的单位。1rem等于根元素的字体大小。<br>​    根据这个单位，我们把根元素的字体大小强行设置为375px，那么1rem便等于该页面的宽度。在设计稿里，我们把所有表示以像素为长度的单位，全部除以320，会得到大于0，小于等于1的数。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">原始宽度</th>
+<th style="text-align:left">相对320px比例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">20px</td>
+<td style="text-align:left">0.0625</td>
+</tr>
+<tr>
+<td style="text-align:left">40px</td>
+<td style="text-align:left">0.125</td>
+</tr>
+<tr>
+<td style="text-align:left">80px</td>
+<td style="text-align:left">0.25</td>
+</tr>
+<tr>
+<td style="text-align:left">120px</td>
+<td style="text-align:left">0.375</td>
+</tr>
+</tbody>
+</table>
+<p>   在iPhone6里，圆的直径写出0.25rem，矩形的宽度写成0.375rem，因为1rem在iPhone6里等于375px，这样圆的实际直径为93.75px，刚好是把80px放大1.172倍。同样地，矩形也是如此等比放大1.172倍。最终便可以完美显示设计稿的样式尺寸了。<br><img src="https://i.loli.net/2017/07/27/59794b22a3768.png" alt=""></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let &#123;clientWidth&#125; = document.documentElement</span><br><span class="line">document.wirte(`&lt;style&gt;html&#123;font-sizee:$&#123;clientWidht&#125;&apos;)&lt;/style&gt;`)</span><br></pre></td></tr></table></figure>
+<p><code>clientWidht</code>在不同手机像素下是不同的，iPhone6里，<code>clientWidht</code>等于375px，它表示移动设备的宽度。</p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>​      对于设计稿里像素宽度较小的<code>div</code>，在用rem表示时，这个比例很小，小数点较多，不易于代码的简单易读，我们可以把1rem的<code>font-size</code>的大小缩小至十分之一，那么相应<code>div</code>表示的ren单位的值就乘以10就可以了。<br>​      这里有人会认为，把根元素的<code>font-size</code>缩小100倍，那么表示<code>div</code>的rem单位的值岂不大一点，看起来好看些。但实际情况下，这样并不行，因为HTML5页面的字体是有默认最小单位的，如果把字体改的太小，浏览器会渲染不了，最终表示为浏览器默认的最小字体，那么你设计的页面与设计稿大不一样。</p>
+<h3 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h3><p>​     动态REM方案虽然可以让移动端页面自适应，但这个方案过不了多久会被淘汰的，因为CSS3又出了一个新单位即vw,vh，100vw等于页面的宽度，50vw等于页面宽度的一半，显然用这个单位是十分高效的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/20/动态REM方案/" data-id="cja5d5wt3000fx6a8cxctvifr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/27/从URL输入到页面展示/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          从URL输入到页面展示
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/14/JS-基本类型有属性吗？/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JS:基本类型有属性吗？</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/07/JS模块化编程与AMD/">JS模块化编程与AMD</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/19/浅谈Promise对象/">浅谈Promise对象</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/立即执行函数/">立即执行函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/JS-什么是闭包/">JS:什么是闭包</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/JS-异步与回调函数/">JS:异步与回调函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

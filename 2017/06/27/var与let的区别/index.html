@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>var与let的区别 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="var和let两者都是指对变量声明，由于var的用法会造成很多bug，故ES6新增了let。 varvar表示声明函数作用域的变量，var会有变量提升，将变量提到作用域的前方。以下面JS代码为例：123456var a=1function foo()&amp;#123;  alert(a)  var a =2 &amp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="var与let的区别">
+<meta property="og:url" content="http://yoursite.com/2017/06/27/var与let的区别/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="var和let两者都是指对变量声明，由于var的用法会造成很多bug，故ES6新增了let。 varvar表示声明函数作用域的变量，var会有变量提升，将变量提到作用域的前方。以下面JS代码为例：123456var a=1function foo()&amp;#123;  alert(a)  var a =2 &amp;#125;foo.call()">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/07/01/595785a9b7cf1.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/07/01/595799ce67bfa.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/07/01/59579e38141cf.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/07/01/59579f064d1c5.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/07/01/5957a06c61f13.png">
+<meta property="og:updated_time" content="2017-07-27T13:48:36.360Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="var与let的区别">
+<meta name="twitter:description" content="var和let两者都是指对变量声明，由于var的用法会造成很多bug，故ES6新增了let。 varvar表示声明函数作用域的变量，var会有变量提升，将变量提到作用域的前方。以下面JS代码为例：123456var a=1function foo()&amp;#123;  alert(a)  var a =2 &amp;#125;foo.call()">
+<meta name="twitter:image" content="https://ooo.0o0.ooo/2017/07/01/595785a9b7cf1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-var与let的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/27/var与let的区别/" class="article-date">
+  <time datetime="2017-06-27T13:00:35.000Z" itemprop="datePublished">2017-06-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      var与let的区别
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="var和let"><a href="#var和let" class="headerlink" title="var和let"></a>var和let</h2><p>两者都是指对变量声明，由于var的用法会造成很多bug，故ES6新增了let。</p>
+<h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>var表示声明函数作用域的变量，var会有变量提升，将变量提到作用域的前方。<br>以下面JS代码为例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a=1</span><br><span class="line">function foo()&#123;</span><br><span class="line">  alert(a)</span><br><span class="line">  var a =2</span><br><span class="line"> &#125;</span><br><span class="line">foo.call()</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>初学者我们都会直接用眼睛去看代码，以为alert的结果为1，实际不是的。浏览器会分两次看上面的代码，第一次会找声明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a</span><br><span class="line">function foo()&#123; //浏览器不会看里面的内容，会直接复制过来｝</span><br></pre></td></tr></table></figure>
+<p>到第二次，就会真正地看代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = 1</span><br><span class="line">foo.call()</span><br></pre></td></tr></table></figure></p>
+<p>当浏览器解析到<code>foo.call()</code>就会去看那个要调用foo函数，同样浏览器会看两次：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//第一次</span><br><span class="line">var a</span><br><span class="line">//第二次</span><br><span class="line">alert(a)</span><br><span class="line">a = 2</span><br></pre></td></tr></table></figure></p>
+<p>将以上代码层层分析，不难知道a只声明了，并为赋值，所以alert的结果为undefined。</p>
+<h3 id="let五大特点"><a href="#let五大特点" class="headerlink" title="let五大特点"></a>let五大特点</h3><h4 id="1-let是块级作用域的变量声明。"><a href="#1-let是块级作用域的变量声明。" class="headerlink" title="1. let是块级作用域的变量声明。"></a>1. let是块级作用域的变量声明。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let a =1</span><br><span class="line">&#123;let a =2&#125;</span><br><span class="line">console.log(a)   //1</span><br></pre></td></tr></table></figure>
+<p>第一个let作用既包括了括号外面的也包括了花括号里面的，第二个let的作用域只在花括号里。</p>
+<h4 id="2-不得在同一作用域里let声明变量两次，否则会报错。"><a href="#2-不得在同一作用域里let声明变量两次，否则会报错。" class="headerlink" title="2. 不得在同一作用域里let声明变量两次，否则会报错。"></a>2. 不得在同一作用域里let声明变量两次，否则会报错。</h4><p><img src="https://ooo.0o0.ooo/2017/07/01/595785a9b7cf1.png" alt=""></p>
+<h4 id="3-let也有变量提升"><a href="#3-let也有变量提升" class="headerlink" title="3. let也有变量提升"></a>3. let也有变量提升</h4><h4 id="4-let的TDZ"><a href="#4-let的TDZ" class="headerlink" title="4. let的TDZ"></a>4. let的TDZ</h4><p>TDZ的意思是Temp Dead Zone(临时死亡区域)，由于let有变量提升，会提升到当前作用域的第一行，其中，实际声明行与作用域的第一行之间的区域叫TDZ。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let b=1</span><br><span class="line">&#123;</span><br><span class="line">   console.log(b)</span><br><span class="line">   let b=2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样会有语法报错。<br><img src="https://ooo.0o0.ooo/2017/07/01/595799ce67bfa.png" alt=""></p>
+<h4 id="5-let与for循环作用时会有奇效"><a href="#5-let与for循环作用时会有奇效" class="headerlink" title="5. let与for循环作用时会有奇效"></a>5. let与for循环作用时会有奇效</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0;i&lt;6;i++)&#123;</span><br><span class="line">   setTimeout(function()&#123;console.log(i)&#125;,1000)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先以var声明来看，浏览器对于这段代码依旧分两次来看，第一次：<code>var i</code>，第二次<code>for(i=0;i&lt;6;i++){setTimeout(匿名函数,1000}}</code>，匿名函数是不算做声明的。由于由于for循环由开始至结束，时间非常短，而定时器还未触发，如下图：<br><img src="https://ooo.0o0.ooo/2017/07/01/59579e38141cf.png" alt=""><br>由于for循环早早结束，那么在1s前i的值已经变为了6，等时间到了1s，那六个‘闹钟’会依次被打开(Quick),最终都发现i已经变为了6，所以控制台会打出6个数值6。<br><img src="https://ooo.0o0.ooo/2017/07/01/59579f064d1c5.png" alt=""><br>当我们把上面代码的var改为let后，控制台会打出什么呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(let i=0;i&lt;6;i++)&#123;</span><br><span class="line">   setTimeout(function()&#123;console.log(i)&#125;,1000)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>结果是：<img src="https://ooo.0o0.ooo/2017/07/01/5957a06c61f13.png" alt=""><br><strong>为什么会这样？</strong><br>这里我们要说明的是，let的声明既不在外面，也不在花括号里，而是在圆括号里(呆在原地)。根据ECMAScript规则:</p>
+<blockquote>
+<p>如果for循环和let一起使用时，那么let在每次进入花括号之前，会帮你声明(复制)一个i，会给这个块一个同名的变量。</p>
+</blockquote>
+<p>每次i递增时，会把i的值放到for循环里，所以每次控制台打出的i值是不同的。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/06/27/var与let的区别/" data-id="cja5d5wsy000cx6a8hitqdh2y" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/03/JS-内存图/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JS:内存图
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/21/《这一代人的学习》笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">《这一代人的学习》笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/07/JS模块化编程与AMD/">JS模块化编程与AMD</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/19/浅谈Promise对象/">浅谈Promise对象</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/立即执行函数/">立即执行函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/JS-什么是闭包/">JS:什么是闭包</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/17/JS-异步与回调函数/">JS:异步与回调函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
